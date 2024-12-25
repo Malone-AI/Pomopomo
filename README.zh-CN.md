@@ -1,5 +1,7 @@
 # 番茄时钟
 
+[English](README.md) | [中文](README.zh-CN.md)
+
 这是一个简单的番茄时钟应用，使用HTML和JavaScript实现。
 
 ## 功能

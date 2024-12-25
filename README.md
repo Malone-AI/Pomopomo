@@ -1,5 +1,7 @@
 # Pomodoro Timer
 
+[English](README.md) | [中文](README.zh-CN.md)
+
 This is a simple Pomodoro timer application implemented using HTML and JavaScript.
 
 ## Features
