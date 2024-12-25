@@ -1,32 +1,59 @@
-let timerInterval;
-let timeLeft = 1500; // 25 minutes in seconds
+// script.js
+let timer;
+let isRunning = false;
+let time = 1500; // 25分钟
 
-function updateTimer() {
-    const minutes = Math.floor(timeLeft / 60);
-    const seconds = timeLeft % 60;
-    document.getElementById('timer').textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-    if (timeLeft <= 0) {
-        clearInterval(timerInterval);
-        alert('时间到！');
-    } else {
-        timeLeft--;
-    }
+const timerDisplay = document.getElementById('timer');
+const startBtn = document.getElementById('start');
+const pauseBtn = document.getElementById('pause');
+const resetBtn = document.getElementById('reset');
+const statsDisplay = document.getElementById('stats');
+
+function updateDisplay() {
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+    timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 }
 
-document.getElementById('start').addEventListener('click', function() {
-    if (!timerInterval) {
-        timerInterval = setInterval(updateTimer, 1000);
-    }
-});
+function updateStats() {
+    let count = localStorage.getItem('pomodoroCount') || 0;
+    statsDisplay.textContent = `已完成番茄钟次数：${count}`;
+}
 
-document.getElementById('pause').addEventListener('click', function() {
-    clearInterval(timerInterval);
-    timerInterval = null;
-});
+function startTimer() {
+    if (isRunning) return;
+    isRunning = true;
+    timer = setInterval(() => {
+        if (time > 0) {
+            time--;
+            updateDisplay();
+        } else {
+            clearInterval(timer);
+            isRunning = false;
+            let count = localStorage.getItem('pomodoroCount') || 0;
+            count++;
+            localStorage.setItem('pomodoroCount', count);
+            updateStats();
+            alert('时间到！');
+        }
+    }, 1000);
+}
 
-document.getElementById('reset').addEventListener('click', function() {
-    clearInterval(timerInterval);
-    timerInterval = null;
-    timeLeft = 1500;
-    updateTimer();
-});
+function pauseTimer() {
+    clearInterval(timer);
+    isRunning = false;
+}
+
+function resetTimer() {
+    clearInterval(timer);
+    isRunning = false;
+    time = 1500;
+    updateDisplay();
+}
+
+startBtn.addEventListener('click', startTimer);
+pauseBtn.addEventListener('click', pauseTimer);
+resetBtn.addEventListener('click', resetTimer);
+
+updateDisplay();
+updateStats();
