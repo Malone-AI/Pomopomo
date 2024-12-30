@@ -64,6 +64,38 @@ button:hover {
     background: linear-gradient(135deg, #9f7aea, #ed64a6);
 }
 
+.language-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.language-toggle button {
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #6b7280, #4b5563);
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.language-toggle button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #4b5563, #374151);
+}
+
+.language-toggle button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
 @keyframes breathing {
     0%, 100% {
         transform: scale(1);
