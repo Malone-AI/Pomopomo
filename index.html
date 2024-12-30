@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,11 +57,32 @@
             margin-top: 16px;
             text-align: center;
         }
+        .language-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .language-toggle button {
+            padding: 8px 16px;
+            font-size: 14px;
+            border: none;
+            border-radius: 4px;
+            background: #6b7280;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .language-toggle button:hover {
+            background: #4b5563;
+        }
     </style>
 </head>
-<body class="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 flex items-center justify-center h-screen">
+<body class="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 flex items-center justify-center h-screen relative">
+    <div class="language-toggle">
+        <button id="language-toggle">English</button>
+    </div>
     <div class="container bg-white p-8 rounded shadow-md w-96">
-        <h1 class="text-2xl font-semibold mb-4">番茄时钟</h1>
+        <h1 class="text-2xl font-semibold mb-4" id="title">番茄时钟</h1>
         <p id="timer" class="timer text-4xl font-bold text-gray-700"></p>
         <div class="flex mt-8 buttons">
             <button id="start" class="button start">开始</button>
