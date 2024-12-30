@@ -1,24 +1,33 @@
-/* styles.css */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background: linear-gradient(120deg, #8ec5fc, #e0c3fc);
     display: flex;
     height: 100vh;
     justify-content: center;
     align-items: center;
+    animation: breathing 10s infinite alternate ease-in-out;
 }
 
 .container {
-    background: #fff;
+    background-color: rgba(255, 255, 255, 0.7);
     padding: 20px 40px;
     border-radius: 8px;
     text-align: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.container:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 #timer {
     font-size: 48px;
     margin: 20px 0;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    animation: textBreath 3s infinite ease-in-out;
 }
 
 .controls button {
@@ -31,4 +40,46 @@ body {
     margin-top: 20px;
     font-size: 14px;
     color: #555;
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.buttons button {
+    margin: 0 8px;
+    background: linear-gradient(135deg, #9f7aea, #ed64a6);
+}
+
+@keyframes breathing {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.03);
+    }
+}
+
+@keyframes textBreath {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
 }

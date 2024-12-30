@@ -6,68 +6,10 @@
     <title>番茄时钟</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* 自定义样式 */
-        .timer {
-            font-family: 'Helvetica Neue', sans-serif;
-            font-size: 5rem;
-            color: #333;
-            background-color: #f5f5f5;
-            border-radius: 8px;
-            padding: 16px;
-            margin-bottom: 24px;
-        }
-
-        .buttons {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .button {
-            font-size: 1.2rem;
-            padding: 12px 24px;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-
-        .button.start {
-            background-color: #4caf50;
-            color: #fff;
-        }
-
-        .button.start:hover {
-            background-color: #45a049;
-        }
-
-        .button.pause {
-            background-color: #ff9800;
-            color: #fff;
-        }
-
-        .button.pause:hover {
-            background-color: #f57c00;
-        }
-
-        .button.reset {
-            background-color: #f44336;
-            color: #fff;
-        }
-
-        .button.reset:hover {
-            background-color: #e53935;
-        }
-
-        #stats {
-            font-family: 'Arial, sans-serif';
-            font-size: 1.2rem;
-            color: #333;
-            margin-top: 16px;
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-100 flex items-center justify-center h-screen">
-    <div class="bg-white p-8 rounded shadow-md w-96">
+<body class="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 flex items-center justify-center h-screen">
+    <div class="container bg-white p-8 rounded shadow-md w-96">
         <h1 class="text-2xl font-semibold mb-4">番茄时钟</h1>
         <p id="timer" class="timer text-4xl font-bold text-gray-700"></p>
         <div class="flex mt-8 buttons">

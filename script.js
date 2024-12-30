@@ -1,4 +1,3 @@
-// script.js
 let timer;
 let isRunning = false;
 let time = 1500; // 25分钟
